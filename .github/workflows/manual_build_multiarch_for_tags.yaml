@@ -1,4 +1,4 @@
-name: Manual Build and Push Multi-Arch Images
+name: Manual Build image for Tags
 
 env:
   REGISTRY: ghcr.io
@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       tags:
-        description: 'List of tags (comma-separated)'
+        description: 'List of tags, as json array. Example: ["3.60.0", "3.61.0"]'
         required: true
-        default: ''
+        default: ""
 
 jobs:
   build_and_push:
