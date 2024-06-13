@@ -37,9 +37,9 @@ LABEL name="Nexus Repository Manager" \
       io.openshift.tags="Sonatype,Nexus,Repository Manager"
 
 ARG NEXUS_VERSION=3.69.0-02
-ARG JAVA_VERSION=java8
+ARG JAVA_VERSION=java11
 ARG NEXUS_DOWNLOAD_URL=https://download.sonatype.com/nexus/3/nexus-${NEXUS_VERSION}-${JAVA_VERSION}-unix.tar.gz
-ARG NEXUS_DOWNLOAD_SHA256_HASH=4161a1bb43d92ad8ca6185fa0da2c0f02dfd62280c5b6e4ac4419df4aecaf55f
+ARG NEXUS_DOWNLOAD_SHA256_HASH=4a22cd3f2a2bd3fef46e2f13b57abfcca9e6244c36cee8c2aac226a333524c07
 
 # configure nexus runtime
 ENV SONATYPE_DIR=/opt/sonatype
@@ -52,7 +52,7 @@ ENV NEXUS_HOME=${SONATYPE_DIR}/nexus \
 # Install java & setup user
 RUN microdnf update -y \
     && microdnf --setopt=install_weak_deps=0 --setopt=tsflags=nodocs install -y \
-          java-1.8.0-openjdk-headless tar procps shadow-utils gzip \
+          java-11-openjdk-headless tar procps shadow-utils gzip \
     && microdnf clean all \
     && groupadd --gid 200 -r nexus \
     && useradd --uid 200 -r nexus -g nexus -s /bin/false -d /opt/sonatype/nexus -c 'Nexus Repository Manager user'
@@ -91,7 +91,7 @@ RUN echo "#!/bin/bash" >> ${SONATYPE_DIR}/start-nexus-repository-manager.sh \
    && sed -e '/^nexus-context/ s:$:${NEXUS_CONTEXT}:' -i ${NEXUS_HOME}/etc/nexus-default.properties
 
 # Cleanup
-RUN microdnf remove -y shadow-utils
+RUN microdnf remove -y gzip shadow-utils
 
 VOLUME ${NEXUS_DATA}
 

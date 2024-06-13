@@ -1,7 +1,11 @@
 <!--
 
-  Copyright (c) 2016-present Sonatype, Inc.
+    Copyright (c) 2016-present Sonatype, Inc. All rights reserved.
+    Includes the third-party code listed at http://links.sonatype.com/products/nxrm/attributions.
+    "Sonatype" is a trademark of Sonatype, Inc.
 
+-->
+<!-- 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -15,7 +19,6 @@
   limitations under the License.
 
 -->
-
 # Sonatype Nexus Repository Docker: sonatype/nexus3
 
 [![Join the chat at https://gitter.im/sonatype/nexus-developers](https://badges.gitter.im/sonatype/nexus-developers.svg)](https://gitter.im/sonatype/nexus-developers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -175,7 +178,6 @@ for additional information.
 Looking to contribute to our Docker image but need some help? There's a few ways to get information or our attention:
 
 * Chat with us on [Gitter](https://gitter.im/sonatype/nexus-developers)
-* File an issue [on our public JIRA](https://issues.sonatype.org/projects/NEXUS/)
 * Check out the [Nexus3](http://stackoverflow.com/questions/tagged/nexus3) tag on Stack Overflow
 * Check out the [Sonatype Nexus Repository User List](https://groups.google.com/a/glists.sonatype.com/forum/?hl=en#!forum/nexus-users)
 
